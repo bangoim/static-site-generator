@@ -39,6 +39,6 @@ def text_node_to_html_node(text_node):
     elif text_node.text_type == TextType.ITALIC:
         return LeafNode(tag='i', value=text_node.text)
     elif text_node.text_type == TextType.LINK:
-        return LeafNode(tag='a', value=text_node.text, props={"href": "link"})
+        return LeafNode("a", text_node.text, {"href": text_node.url})
     elif text_node.text_type == TextType.IMAGE:
-        return LeafNode(tag='img', value=None, props={"src": "src_image", "alt": "alt_text"})
+        return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
